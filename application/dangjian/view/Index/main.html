@@ -1,0 +1,63 @@
+{extend name="Common/base"} {block name="head"}
+<link rel="stylesheet" href="__PUBLIC__/static/css/index_main.css">
+{/block} {block name="main"}
+<div class="container" style="width: 1200px;">
+	<div class="row head" style="height: 150px;">
+		<div class="col-md-12" style="height: 100%;">
+			<div class="head-pic">
+				<span><br /> <br /> <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大图</span>
+			</div>
+		</div>
+	</div>
+	<div class="row nav">
+		<div class="col-md-12">{include file="Common/nav" /}</div>
+	</div>
+	<div class="row main">
+		<div class="col-md-3 todo">
+			<div>我的代办</div>
+		</div>
+		<div class="col-md-6 news-pic">图片新闻</div>
+		<div class="col-md-3 notice">
+			<div>
+				<p class="text-warning">
+					<span class="glyphicon glyphicon-volume-up"></span>&nbsp;公告
+				</p>
+			</div>
+			<div>
+				<div id="notice_div"></div>
+			</div>
+		</div>
+	</div>
+	<div class="row"></div>
+	<div class="row"></div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+</div>
+{/block} {block name="js"}
+<script>
+	$(function($) {
+		loadNotice();
+		function loadNotice() {
+			var noticeList = JSON.parse('{$noticeList|default=""}');
+			const tpl = '<p class="notice text-muted ">{_data_}</p>';
+			var htmlStr = '';
+			var str = '';
+			for (var i = 0; i < noticeList.length; i++) {
+				var content = noticeList[i]["content"];
+				if (content.length > 7) {
+					content = content.substr(0, 7) + "...";
+				}
+				str = content + ", " + noticeList[i]["createtime"];
+				htmlStr += tpl.replace("{_data_}", str);
+			}
+			$("#notice_div").html(htmlStr);
+		}
+
+	});
+</script>
+
+
+{/block}

@@ -1,0 +1,6 @@
+composer.lock
+*.log
+.buildpath
+.project
+.settings
+thinkphp
