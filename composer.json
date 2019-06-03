@@ -1,0 +1,30 @@
+{
+    "name": "thianda/dangjian",
+    "description": "PHP project for party construction",
+    "type": "project",
+    "keywords": [
+        "party construction",
+        "thinkphp",
+        "ORM"
+    ],
+    "homepage": "https://github.com/thianda/dangjian",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "thianda",
+            "email": "1748104738@139.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "topthink/framework": "^5.0",
+		"topthink/think-image": "^1.0",
+        "PHPOffice/PHPExcel": "^1.8"
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
